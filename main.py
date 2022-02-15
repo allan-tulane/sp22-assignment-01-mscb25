@@ -12,9 +12,7 @@ def foo(x):
       return (foo(x-2) + foo(x-1))
     pass
 
-foo(3)
-foo(1)
-foo(12)
+
 def longest_run(mylist, key):
     ### TODO
     pass
