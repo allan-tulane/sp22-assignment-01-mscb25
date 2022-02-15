@@ -5,9 +5,16 @@ See assignment-01.pdf for details.
 # no imports needed.
 
 def foo(x):
-    ### TODO
+    if x <= 1:
+      return x
+
+    else:
+      return (foo(x-2) + foo(x-1))
     pass
 
+foo(3)
+foo(1)
+foo(12)
 def longest_run(mylist, key):
     ### TODO
     pass
