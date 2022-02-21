@@ -1,4 +1,4 @@
-# Assignment-01 tests.
+from# Assignment-01 tests.
 # each test is 2 pts
 
 from main import *

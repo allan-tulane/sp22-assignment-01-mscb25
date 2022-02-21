@@ -14,8 +14,21 @@ def foo(x):
 
 
 def longest_run(mylist, key):
-    ### TODO
-    pass
+  seq_count = 0
+  seq_holder = 0
+  for item in mylist:
+    if item == key:
+      seq_count += 1
+    else:
+      if seq_count > seq_holder:
+        seq_holder = seq_count
+      else:
+        pass
+      seq_count = 0
+  
+  return max(seq_count, seq_holder)
+  
+  
 
 
 class Result:
@@ -32,8 +45,39 @@ class Result:
     
     
 def longest_run_recursive(mylist, key):
-    ### TODO
-    pass
+
+  left = 0
+  right = len(mylist) - 1
+  
+  mid = (left + right) // 2
+  longest_seq = 0
+  
+  if mylist[mid] == key:
+    while mylist[left] == key and left >= 0:
+      left -= 1
+    while mylist[right] == key and mid <= right:
+      right += 1
+
+    longest_seq = left + right + 1
+
+  longest_onleft = longest_run_recursive(mylist[0:mid], key).longest_size
+  longest_onright = longest_run_recursive(mylist[mid + 1:], key).longest_size
+
+  ultimate_longest = max(longest_onleft, longest_onright, longest_seq)
+
+  final_seq = Result(ultimate_longest, longest_onleft, longest_onright, (num == key for num in mylist))
+
+  return final_seq
+    
+    
+
+  
+  
+  #for item in mylist:
+   #   if item == key:
+    #    return self.longest_size
+     # else:
+      #  return longest_run_recursive(item-1)
 
 ## Feel free to add your own tests here.
 def test_longest_run():
